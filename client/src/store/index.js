@@ -21,7 +21,6 @@ export const GlobalStoreActionType = {
     SET_LIST_NAME_EDIT_ACTIVE: "SET_LIST_NAME_EDIT_ACTIVE",
     SET_ITEM_EDIT_ACTIVE: "SET_ITEM_EDIT_ACTIVE",
     CHANGE_ITEM_NAME: "CHANGE_ITEM_NAME",
-    MARK_LIST_DELETE: "MARK_LIST_DELETE",
     CREATE_NEW_LIST: "CREATE_NEW_LIST"
 }
 
@@ -216,6 +215,7 @@ export const useGlobalStore = () => {
             }
         }
         updateList(top5List);
+        store.setCurrentList(top5List._id);
     }
 
     // THIS FUNCTION PROCESSES CLOSING THE CURRENTLY LOADED LIST
