@@ -28,7 +28,7 @@ function Top5Item(props) {
     function handleKeyPress(event) {
         if (event.code === "Enter") {
             toggleEdit();
-            store.addRenameItemTransaction(index, props.text, text);
+            store.addRenameItemTransaction(index, text);
         }
     }
 
@@ -74,12 +74,13 @@ function Top5Item(props) {
     }
     if (editActive) {
         return (
-            <input
-            className='list-card'
-            type='text'
-            onKeyPress={handleKeyPress}
-            onChange={handleUpdateText}
-            defaultValue={text}
+            <input 
+                autoFocus 
+                className='list-card'
+                type='text'
+                onKeyPress={handleKeyPress}
+                onChange={handleUpdateText}
+                defaultValue={text}
         />
         )
     }

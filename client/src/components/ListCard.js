@@ -40,6 +40,7 @@ function ListCard(props) {
     }
 
     function handleKeyPress(event) {
+        event.stopPropagation();
         if (event.code === "Enter") {
             let id = event.target.id.substring("list-".length);
             store.changeListName(id, text);
@@ -49,6 +50,13 @@ function ListCard(props) {
 
     function handleUpdateText(event) {
         setText(event.target.value );
+    }
+
+    function handleDeleteModal(event) {
+        event.stopPropagation();
+        store.showDeleteModal(idNamePair._id);
+        store.setListForDeletion(idNamePair._id);
+
     }
 
     let selectClass = "unselected-list-card";
@@ -77,6 +85,7 @@ function ListCard(props) {
                 id={"delete-list-" + idNamePair._id}
                 className="list-card-button"
                 value={"\u2715"}
+                onClick={handleDeleteModal}
             />
             <input
                 disabled={cardStatus}
